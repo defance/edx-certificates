@@ -1,7 +1,9 @@
 from ifmo_certs import globals, html_academy_certificate, student
+import utils
 
 
 def perform_task(input_file='', logfile='', do_compile=True):
+    utils.ensure_dir(globals.OUTPUT_DIR)
     lst = student.get_student_list(input_file)
     with open(logfile, "w") as f:
         for (i, s) in enumerate(lst, start=1):
@@ -9,7 +11,7 @@ def perform_task(input_file='', logfile='', do_compile=True):
             c = html_academy_certificate.HTMLAcademyCertificate(
                 s,
                 base_path=globals.RESOURCE_PATH,
-                output_prefix=globals.OUTPUT_DIR
+                output_prefix=globals.OUTPUT_DIR_CERTIFICATES
             )
             if do_compile:
                 c.compile()
@@ -23,7 +25,7 @@ def perform_task(input_file='', logfile='', do_compile=True):
 
 
 def main():
-    do_compile = False
+    do_compile = True
     perform_task(globals.LIST_WITH_HONOURS, globals.OUTPUT_DIR + 'report_with_honours.txt', do_compile=do_compile)
     perform_task(globals.LIST_WITHOUT_HONOURS, globals.OUTPUT_DIR + 'report_without_honours.txt', do_compile=do_compile)
     perform_task(globals.LIST_TEST, globals.OUTPUT_DIR + 'report_test.txt', do_compile=do_compile)
