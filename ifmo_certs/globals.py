@@ -1,4 +1,4 @@
-RESOURCE_PATH = './fancy_cert/'
+RESOURCE_PATH = './resources/fancy_cert/'
 CERTIFICATE = RESOURCE_PATH + 'certificate.html'
 OUTPUT = 'certificate.pdf'
 
