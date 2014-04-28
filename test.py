@@ -1,8 +1,4 @@
-from weasyprint import HTML
-
-import globals
-import student
-import html_academy_certificate
+from ifmo_certs import globals, html_academy_certificate, student
 
 
 def perform_task(input_file='', logfile='', do_compile=True):

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import certificate
-import globals
+from ifmo_certs import globals, certificate
 
 
 class HTMLAcademyCertificate(certificate.Certificate):
